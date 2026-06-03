@@ -83,6 +83,20 @@ streamlit run main.py
 
 Open the URL Streamlit prints (usually `http://localhost:8501`), upload PDFs from the sidebar, click **Process Documents**, and start asking questions.
 
+## Deploy on Streamlit Community Cloud
+
+1. Push this repo to GitHub (already done if you cloned it from the repo URL).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. Click **New app**, select this repository, branch `main`, and set the main file path to `main.py`.
+4. Before deploying, open **Advanced settings → Secrets** and add:
+   ```toml
+   GROQ_API_KEY = "gsk-your-actual-key"
+   ```
+   Streamlit Cloud injects this as an environment variable, so the existing `app/config.py` works without any code changes. Do **not** commit your real key to `.env` on GitHub.
+5. Click **Deploy**. The first build will take a few minutes because `sentence-transformers` downloads the `all-mpnet-base-v2` model at first run.
+
+> `requirements.txt` at the repo root pins the exact versions used during local development so the cloud build is reproducible. `pyproject.toml` + `uv.lock` are kept for local `uv` users.
+
 ## How It Works
 
 1. **Extract** – Text is pulled out of each uploaded PDF with `pypdf`.
