@@ -1,6 +1,10 @@
 # MediChat Pro
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://medchatbot-rag-app.streamlit.app/)
+
 A simple RAG (Retrieval-Augmented Generation) chatbot that lets you upload medical PDF documents and ask questions about them. Built with Streamlit, LangChain, FAISS, and Groq.
+
+> **Live demo:** https://medchatbot-rag-app.streamlit.app/
 
 ## Features
 
