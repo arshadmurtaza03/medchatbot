@@ -1,9 +1,0 @@
-streamlit
-fpdf
-pypdf
-faiss-cpu
-langchain
-langchain_groq
-langchain_community
-sentence-transformers
-python-dotenv

@@ -1,6 +1,6 @@
 # MediChat Pro
 
-A simple RAG (Retrieval-Augmented Generation) chatbot that lets you upload medical PDF documents and ask questions about them. Built with Streamlit, LangChain, FAISS, and Euri AI.
+A simple RAG (Retrieval-Augmented Generation) chatbot that lets you upload medical PDF documents and ask questions about them. Built with Streamlit, LangChain, FAISS, and Groq.
 
 ## Features
 
@@ -28,11 +28,10 @@ medchatbot/
 │   ├── config.py            # Loads API key from .env
 │   ├── pdf_utils.py         # PDF text extraction
 │   ├── vectorstore_utils.py # FAISS index + retrieval
-│   ├── chat_utils.py        # Euri AI chat model wrapper
+│   ├── chat_utils.py        # Groq chat model wrapper
 │   └── ui.py                # Streamlit uploader
 ├── sample_data/             # Example medical PDFs
 ├── .env.example             # Template for API key
-├── requirements.txt
 ├── pyproject.toml
 └── uv.lock
 ```
@@ -48,21 +47,23 @@ cd medchatbot
 
 ### 2. Create a virtual environment and install dependencies
 
-Using `uv` (recommended):
+Using `uv`:
 ```bash
 uv sync
 ```
 
-Or using `pip`:
+Or using `pip` (with a manual `venv`):
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
+pip install -e .
 ```
+
+> Install `uv` from [https://docs.astral.sh/uv/](https://docs.astral.sh/uv/) if you don't have it.
 
 ### 3. Add your API key
 
-Copy the example file and fill in your Euri AI key:
+Copy the example file and fill in your Groq API key:
 ```bash
 cp .env.example .env
 ```
